@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic number addition</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #212121;
+      }
+      #sum {
+        margin: 1rem;
+      }
+      #calculateBtn {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        padding: 0.3rem 1.2rem 0.5rem 1.2rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        
+      }
+      input[type="number"] {
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-size: 1rem;
+        width: 40%;
+        box-sizing: border-box;
+      }
+      .section {
+        font-size: 1em;
+        color: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        background-color: rgb(63, 63, 63);
+        display: block;
+        max-width: 500px;
+        max-height: 500px;
+        margin: 10rem auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section">
+      <div class="headingContainer">
+        <h1>Addition of 2 numbers</h1>
+      </div>
+      <div>
+        <label for="a">Enter number 1:</label>
+        <input
+          type="number"
+          id="a"
+          name="Number 1"
+          min="1"
+          max="20"
+          step="1"
+          required
+        />
+        <br />
+        <br />
+        <label for="b">Enter number 2:</label>
+        <input
+          type="number"
+          id="b"
+          name="Number 2"
+          min="1"
+          max="20"
+          step="1"
+          required
+        />
+        <br>
+        <div id="sum"></div>
+        <button id="calculateBtn">Calculate Sum</button>
+      </div>
+    </section>
+    <script src="index.js"></script>
+  </body>
+</html>
