@@ -6,12 +6,12 @@ btn.addEventListener("click", () => {
   resultdiv.innerHTML = password.slice(0, 24);
 });
 
-function generatePassword(objects, col, feel, sym, temp) {
-  const randomObject = objects[Math.floor(Math.random() * 40)];
-  const randomColor = col[Math.floor(Math.random() * 10)];
-  const randomFeeling = feel[Math.floor(Math.random() * 4)];
-  const randomSymbol = sym[Math.floor(Math.random() * 8)];
-  const randomTemp = temp[Math.floor(Math.random() * 3)];
+function generatePassword(obj, col, feel, sym, temp) {
+  const randomObject = obj[Math.floor(Math.random() * obj.length)];
+  const randomColor = col[Math.floor(Math.random() * col.length)];
+  const randomFeeling = feel[Math.floor(Math.random() * feel.length)];
+  const randomSymbol = sym[Math.floor(Math.random() * sym.length)];
+  const randomTemp = temp[Math.floor(Math.random() * temp.length)];
   return (
     randomColor +
     randomTemp +
