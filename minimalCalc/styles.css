@@ -50,6 +50,20 @@ a {
   justify-content: flex-end;
 }
 
+#input {
+  font-weight: 700;
+  padding: 4px;
+  text-align: right;
+  height: 2.5rem;
+}
+
+#result {
+  font-size: 2rem;
+  padding: 4px;
+  text-align: right;
+  height: 3.2rem;
+}
+
 .flex {
   flex-wrap: wrap;
   display: flex;
