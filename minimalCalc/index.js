@@ -131,7 +131,7 @@ equal.addEventListener("click", () => {
 });
 
 function calculateResult(expression) {
-  return eval(expression);
+  return parseFloat(eval(expression).toFixed(3));
 }
 
 sea.addEventListener("click", () => {
