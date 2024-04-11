@@ -1,4 +1,4 @@
-const operators = ['+', '-', 'x', '/', '%'];
+const operators = ['+', '-', '*', '/', '%'];
 
 zero.addEventListener("click", () => {
   // if the input box is not empty
@@ -71,7 +71,7 @@ sub.addEventListener("click", () => {
 mul.addEventListener("click", () => {
    if (input.innerText) {
      if (!operators.includes(input.innerText[input.innerText.length - 1]))
-       input.innerText += "x";
+       input.innerText += "*";
    }
 });
 
@@ -82,7 +82,7 @@ div.addEventListener("click", () => {
   }
 });
 
-div.addEventListener("click", () => {
+mod.addEventListener("click", () => {
   if (input.innerText) {
     if (!operators.includes(input.innerText[input.innerText.length - 1]))
       input.innerText += "%";
@@ -101,14 +101,18 @@ clearResult.addEventListener("click", () => {
   result.innerText = result.innerText.slice(0, 0);
 });
 
-equal.addEventListener("click", () => {
-  const result = calculateResult();
-  result.innerText = result;
+negative.addEventListener("click", () => {
+  if (!input.innerText) {
+    input.innerText += "-";
+  }
 });
 
-function calculateResult () {
-  const result = 0;
-  return result;
+equal.addEventListener("click", () => {
+  document.getElementById("result").innerText = calculateResult(input.innerText);
+});
+
+function calculateResult (expression) {
+  return (eval(expression));
 }
 
 
