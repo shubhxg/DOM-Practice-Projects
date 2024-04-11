@@ -96,6 +96,13 @@ square.addEventListener("click", () => {
   }
 });
 
+squareroot.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      result.innerText = Math.sqrt(input.innerText);
+  }
+})
+
 clearResult.addEventListener("click", () => {
   // clear the result field
   result.innerText = result.innerText.slice(0, 0);
@@ -124,7 +131,10 @@ dot.addEventListener("click", () => {
 });
 
 equal.addEventListener("click", () => {
-  document.getElementById("result").innerText = calculateResult(input.innerText);
+  if (document.getElementById("input").innerText) {
+    document.getElementById("result").innerText = calculateResult(input.innerText);
+    document.getElementById("input").innerText = document.getElementById("result").innerText;
+  }
 });
 
 function calculateResult(expression) {
