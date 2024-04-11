@@ -1,12 +1,101 @@
-const equal = document.getElementById("equal");
-const dot = document.getElementById("dot");
-const zero = document.getElementById("zero");
-const negative = document.getElementById("negative");
-const three = document.getElementById("three");
-const two = document.getElementById("two");
-const one = document.getElementById("one");
-const add = document.getElementById("add");
-const six = document.getElementById("six");
+const operators = ['+', '-', 'x', '/', '%'];
+
+zero.addEventListener("click", () => {
+  if (input.innerText) {
+    input.innerText += "0";
+  }
+});
+
+one.addEventListener("click", () => {
+  input.innerText += 1;
+});
+
+two.addEventListener("click", () => {
+  input.innerText += 2;
+});
+
+three.addEventListener("click", () => {
+  input.innerText += 3;
+});
+
+four.addEventListener("click", () => {
+  input.innerText += 4;
+});
+
+five.addEventListener("click", () => {
+  input.innerText += 5;
+});
+
+six.addEventListener("click", () => {
+  input.innerText += 6;
+});
+
+seven.addEventListener("click", () => {
+  input.innerText += 7;
+});
+
+eight.addEventListener("click", () => {
+  input.innerText += 8;
+});
+
+nine.addEventListener("click", () => {
+  input.innerText += 9;
+});
+
+clear.addEventListener("click", () => {
+  input.innerText = input.innerText.slice(0,0);
+});
+
+del.addEventListener("click", () => {
+  input.innerText = input.innerText.slice(0, -1);
+});
+
+add.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!(operators.includes(input.innerText[input.innerText.length - 1])))
+      input.innerText += "+";
+  }
+});
+
+sub.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      input.innerText += "-";
+  }
+});
+
+mul.addEventListener("click", () => {
+   if (input.innerText) {
+     if (!operators.includes(input.innerText[input.innerText.length - 1]))
+       input.innerText += "x";
+   }
+});
+
+div.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      input.innerText += "/";
+  }
+});
+
+div.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      input.innerText += "%";
+  }
+});
+
+square.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      result.innerText = input.innerText * input.innerText;
+  }
+});
+
+clearResult.addEventListener("click", () => {
+  result.innerText = result.innerText.slice(0, 0);
+});
+
 
 sea.addEventListener("click", () => {
   removeTheme(
