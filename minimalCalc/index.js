@@ -131,8 +131,10 @@ dot.addEventListener("click", () => {
 });
 
 equal.addEventListener("click", () => {
-  document.getElementById("result").innerText = calculateResult(input.innerText);
-  document.getElementById("input").innerText = document.getElementById("result").innerText;
+  if (document.getElementById("input").innerText) {
+    document.getElementById("result").innerText = calculateResult(input.innerText);
+    document.getElementById("input").innerText = document.getElementById("result").innerText;
+  }
 });
 
 function calculateResult(expression) {
