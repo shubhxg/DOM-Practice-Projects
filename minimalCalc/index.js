@@ -1,5 +1,7 @@
 const operators = ["+", "-", "*", "/", "%"];
 
+let equal_result = false;
+
 zero.addEventListener("click", () => {
   // if the input box is not empty
   if (input.innerText) {
@@ -56,36 +58,57 @@ del.addEventListener("click", () => {
 add.addEventListener("click", () => {
   // if the input box is not empty
   if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+    if (!operators.includes(input.innerText[input.innerText.length - 1])) {
+      if (equal_result) {
+        document.getElementById("input").innerText = document.getElementById("result").innerText;
+        equal_result = false;
+      }
       input.innerText += "+";
+    }
   }
 });
 
 sub.addEventListener("click", () => {
   if (input.innerText) {
     if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      input.innerText += "-";
+      if (equal_result) {
+        document.getElementById("input").innerText = document.getElementById("result").innerText;
+        equal_result = false;
+      }
+    input.innerText += "-";
   }
 });
 
 mul.addEventListener("click", () => {
   if (input.innerText) {
     if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      input.innerText += "*";
+      if (equal_result) {
+        document.getElementById("input").innerText = document.getElementById("result").innerText;
+        equal_result = false;
+      }
+    input.innerText += "*";
   }
 });
 
 div.addEventListener("click", () => {
   if (input.innerText) {
     if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      input.innerText += "/";
+      if (equal_result) {
+        document.getElementById("input").innerText = document.getElementById("result").innerText;
+        equal_result = false;
+      }
+    input.innerText += "/";
   }
 });
 
 mod.addEventListener("click", () => {
   if (input.innerText) {
     if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      input.innerText += "%";
+      if (equal_result) {
+        document.getElementById("input").innerText = document.getElementById("result").innerText;
+        equal_result = false;
+      }
+    input.innerText += "%";
   }
 });
 
@@ -126,7 +149,8 @@ dot.addEventListener("click", () => {
 equal.addEventListener("click", () => {
   if (document.getElementById("input").innerText) {
     document.getElementById("result").innerText = calculateResult(input.innerText);
-    document.getElementById("input").innerText = document.getElementById("result").innerText;
+    equal_result = true;
+    // document.getElementById("input").innerText = document.getElementById("result").innerText;
   }
 });
 
