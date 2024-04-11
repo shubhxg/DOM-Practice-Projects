@@ -107,6 +107,15 @@ negative.addEventListener("click", () => {
   }
 });
 
+dot.addEventListener("click", () => {
+  if (input.innerText) {
+    input.innerText += ".";
+  } else {
+    input.innerText += "0";
+    input.innerText += ".";
+  }
+});
+
 equal.addEventListener("click", () => {
   document.getElementById("result").innerText = calculateResult(input.innerText);
 });
