@@ -13,7 +13,7 @@ body {
 }
 
 .btn:hover, .themebtn:hover {
-  border-bottom: 3px solid black;
+  border-bottom: 4px solid #000000;
   background-color: white;
   cursor: pointer;
 }

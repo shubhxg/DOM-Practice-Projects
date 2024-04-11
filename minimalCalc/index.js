@@ -1,4 +1,4 @@
-const operators = ['+', '-', '*', '/', '%'];
+const operators = ["+", "-", "*", "/", "%"];
 
 zero.addEventListener("click", () => {
   // if the input box is not empty
@@ -45,7 +45,7 @@ nine.addEventListener("click", () => {
 
 clear.addEventListener("click", () => {
   // clearing the input field
-  input.innerText = input.innerText.slice(0,0);
+  input.innerText = input.innerText.slice(0, 0);
 });
 
 del.addEventListener("click", () => {
@@ -69,10 +69,10 @@ sub.addEventListener("click", () => {
 });
 
 mul.addEventListener("click", () => {
-   if (input.innerText) {
-     if (!operators.includes(input.innerText[input.innerText.length - 1]))
-       input.innerText += "*";
-   }
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      input.innerText += "*";
+  }
 });
 
 div.addEventListener("click", () => {
@@ -104,13 +104,20 @@ squareroot.addEventListener("click", () => {
 })
 
 clearResult.addEventListener("click", () => {
-  // clear the result field 
+  // clear the result field
   result.innerText = result.innerText.slice(0, 0);
 });
 
 negative.addEventListener("click", () => {
   if (!input.innerText) {
     input.innerText += "-";
+  }
+});
+
+cube.addEventListener("click", () => {
+  if (input.innerText) {
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
+      result.innerText = input.innerText * input.innerText * input.innerText;
   }
 });
 
@@ -128,10 +135,9 @@ equal.addEventListener("click", () => {
   document.getElementById("input").innerText = document.getElementById("result").innerText;
 });
 
-function calculateResult (expression) {
-  return (eval(expression));
+function calculateResult(expression) {
+  return eval(expression);
 }
-
 
 sea.addEventListener("click", () => {
   removeTheme(
