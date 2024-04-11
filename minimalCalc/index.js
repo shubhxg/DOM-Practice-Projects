@@ -1,6 +1,7 @@
 const operators = ['+', '-', 'x', '/', '%'];
 
 zero.addEventListener("click", () => {
+  // if the input box is not empty
   if (input.innerText) {
     input.innerText += "0";
   }
@@ -43,16 +44,19 @@ nine.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
+  // clearing the input field
   input.innerText = input.innerText.slice(0,0);
 });
 
 del.addEventListener("click", () => {
+  // deleting the last token
   input.innerText = input.innerText.slice(0, -1);
 });
 
 add.addEventListener("click", () => {
+  // if the input box is not empty
   if (input.innerText) {
-    if (!(operators.includes(input.innerText[input.innerText.length - 1])))
+    if (!operators.includes(input.innerText[input.innerText.length - 1]))
       input.innerText += "+";
   }
 });
@@ -93,8 +97,19 @@ square.addEventListener("click", () => {
 });
 
 clearResult.addEventListener("click", () => {
+  // clear the result field 
   result.innerText = result.innerText.slice(0, 0);
 });
+
+equal.addEventListener("click", () => {
+  const result = calculateResult();
+  result.innerText = result;
+});
+
+function calculateResult () {
+  const result = 0;
+  return result;
+}
 
 
 sea.addEventListener("click", () => {
