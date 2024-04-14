@@ -1,157 +1,147 @@
 const operators = ["+", "-", "*", "/", "%"];
+const buttons = document.querySelectorAll(".btn");
+const input = document.getElementById("input");
+const result = document.getElementById("result");
 
-let equal_result = false;
+let equalResult = false;
 
-zero.addEventListener("click", () => {
-  // if the input box is not empty
-  if (input.innerText) {
-    input.innerText += "0";
-  }
-});
-
-one.addEventListener("click", () => {
-  input.innerText += 1;
-});
-
-two.addEventListener("click", () => {
-  input.innerText += 2;
-});
-
-three.addEventListener("click", () => {
-  input.innerText += 3;
-});
-
-four.addEventListener("click", () => {
-  input.innerText += 4;
-});
-
-five.addEventListener("click", () => {
-  input.innerText += 5;
-});
-
-six.addEventListener("click", () => {
-  input.innerText += 6;
-});
-
-seven.addEventListener("click", () => {
-  input.innerText += 7;
-});
-
-eight.addEventListener("click", () => {
-  input.innerText += 8;
-});
-
-nine.addEventListener("click", () => {
-  input.innerText += 9;
-});
-
-clear.addEventListener("click", () => {
-  // clearing the input field
-  input.innerText = input.innerText.slice(0, 0);
-});
-
-del.addEventListener("click", () => {
-  // deleting the last token
-  input.innerText = input.innerText.slice(0, -1);
-});
-
-add.addEventListener("click", () => {
-  // if the input box is not empty
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1])) {
-      if (equal_result) {
-        document.getElementById("input").innerText = document.getElementById("result").innerText;
-        equal_result = false;
-      }
-      input.innerText += "+";
+// traversing all the buttons with the btn class
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    switch (event.target.id) {
+      case "clear":
+        input.innerText = input.innerText.slice(0, 0);
+        break;
+      case "clearResult":
+        result.innerText = result.innerText.slice(0, 0);
+        break;
+      case "del":
+        input.innerText = input.innerText.slice(0, -1);
+        break;
+      case "zero":
+        if (input.innerText) {
+          input.innerText += "0";
+        }
+        break;
+      case "one":
+        input.innerText += 1;
+        break;
+      case "two":
+        input.innerText += 2;
+        break;
+      case "three":
+        input.innerText += 3;
+        break;
+      case "four":
+        input.innerText += 4;
+        break;
+      case "five":
+        input.innerText += 5;
+        break;
+      case "six":
+        input.innerText += 6;
+        break;
+      case "seven":
+        input.innerText += 7;
+        break;
+      case "eight":
+        input.innerText += 8;
+        break;
+      case "nine":
+        input.innerText += 9;
+        break;
+      case "add":
+        if (input.innerText) {
+          if (
+            !operators.includes(input.innerText[input.innerText.length - 1])
+          ) {
+            if (equalResult) {
+              document.getElementById("input").innerText =
+                document.getElementById("result").innerText;
+              equalResult = false;
+            }
+            input.innerText += "+";
+          }
+        }
+        break;
+      case "sub":
+        if (input.innerText) {
+          if (!operators.includes(input.innerText[input.innerText.length - 1]))
+            if (equalResult) {
+              document.getElementById("input").innerText =
+                document.getElementById("result").innerText;
+              equalResult = false;
+            }
+          input.innerText += "-";
+        }
+        break;
+      case "mul":
+        if (input.innerText) {
+          if (!operators.includes(input.innerText[input.innerText.length - 1]))
+            if (equalResult) {
+              document.getElementById("input").innerText =
+                document.getElementById("result").innerText;
+              equalResult = false;
+            }
+          input.innerText += "*";
+        }
+        break;
+      case "div":
+        if (input.innerText) {
+          if (!operators.includes(input.innerText[input.innerText.length - 1]))
+            if (equalResult) {
+              document.getElementById("input").innerText =
+                document.getElementById("result").innerText;
+              equalResult = false;
+            }
+          input.innerText += "/";
+        }
+        break;
+      case "mod":
+        if (input.innerText) {
+          if (!operators.includes(input.innerText[input.innerText.length - 1]))
+            if (equalResult) {
+              document.getElementById("input").innerText =
+                document.getElementById("result").innerText;
+              equalResult = false;
+            }
+          input.innerText += "%";
+        }
+        break;
+      case "square":
+        if (input.innerText) {
+          if (!operators.includes(input.innerText[input.innerText.length - 1]))
+            result.innerText = input.innerText * input.innerText;
+        }
+        break;
+      case "negative":
+        if (!input.innerText) {
+          input.innerText += "-";
+        }
+        break;
+      case "cube":
+        if (input.innerText) {
+          if (!operators.includes(input.innerText[input.innerText.length - 1]))
+            result.innerText =
+              input.innerText * input.innerText * input.innerText;
+        }
+        break;
+      case "dot":
+        if (input.innerText) {
+          input.innerText += ".";
+        } else {
+          input.innerText += "0";
+          input.innerText += ".";
+        }
+        break;
+      case "equal":
+        if (input.innerText) {
+          result.innerText = calculateResult(input.innerText);
+          equalResult = true;
+        }
+        break;
     }
-  }
-});
-
-sub.addEventListener("click", () => {
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      if (equal_result) {
-        document.getElementById("input").innerText = document.getElementById("result").innerText;
-        equal_result = false;
-      }
-    input.innerText += "-";
-  }
-});
-
-mul.addEventListener("click", () => {
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      if (equal_result) {
-        document.getElementById("input").innerText = document.getElementById("result").innerText;
-        equal_result = false;
-      }
-    input.innerText += "*";
-  }
-});
-
-div.addEventListener("click", () => {
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      if (equal_result) {
-        document.getElementById("input").innerText = document.getElementById("result").innerText;
-        equal_result = false;
-      }
-    input.innerText += "/";
-  }
-});
-
-mod.addEventListener("click", () => {
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      if (equal_result) {
-        document.getElementById("input").innerText = document.getElementById("result").innerText;
-        equal_result = false;
-      }
-    input.innerText += "%";
-  }
-});
-
-square.addEventListener("click", () => {
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      result.innerText = input.innerText * input.innerText;
-  }
-});
-
-clearResult.addEventListener("click", () => {
-  // clear the result field
-  result.innerText = result.innerText.slice(0, 0);
-});
-
-negative.addEventListener("click", () => {
-  if (!input.innerText) {
-    input.innerText += "-";
-  }
-});
-
-cube.addEventListener("click", () => {
-  if (input.innerText) {
-    if (!operators.includes(input.innerText[input.innerText.length - 1]))
-      result.innerText = input.innerText * input.innerText * input.innerText;
-  }
-});
-
-dot.addEventListener("click", () => {
-  if (input.innerText) {
-    input.innerText += ".";
-  } else {
-    input.innerText += "0";
-    input.innerText += ".";
-  }
-});
-
-equal.addEventListener("click", () => {
-  if (document.getElementById("input").innerText) {
-    document.getElementById("result").innerText = calculateResult(input.innerText);
-    equal_result = true;
-    // document.getElementById("input").innerText = document.getElementById("result").innerText;
-  }
+  });
 });
 
 function calculateResult(expression) {
