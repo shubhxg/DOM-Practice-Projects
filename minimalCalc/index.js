@@ -146,7 +146,7 @@ buttons.forEach((button) => {
 
 function calculateResult(expression) {
   try {
-    return math.evaluate(expression);
+    return parseFloat(math.evaluate(expression)).toFixed(3);
   } catch (error) {
     return "Error";
   }
