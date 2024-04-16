@@ -6,7 +6,7 @@ const stop = document.querySelector("#stop");
 
 let isStarted = false;
 
-start.addEventListener("click", () => {
+const startChange = () => {
   isStarted = true;
   intervalID = setInterval(() => {
     const bgColor = randomColor();
@@ -18,9 +18,9 @@ start.addEventListener("click", () => {
     document.querySelector("#start").classList.add("hidden");
     heading.innerHTML = "Letssss go!!! 🌈";
   }
-});
+};
 
-stop.addEventListener("click", () => {
+const stopChange = () => {
   isStarted = false;
   clearInterval(intervalID);
   // deallocating the memory for the intervalID
@@ -30,7 +30,10 @@ stop.addEventListener("click", () => {
     document.querySelector("#start").classList.remove("hidden");
     heading.textContent = "Click to start again!";
   }
-});
+};
+
+start.addEventListener("click", startChange);
+stop.addEventListener("click", stopChange);
 
 // function to generate a random color
 function randomColor() {
