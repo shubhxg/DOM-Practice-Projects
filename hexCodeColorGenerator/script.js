@@ -1,5 +1,5 @@
 let intervalID;
-const colorHexCode = "1234567890abcdef";
+const colorHexCodeString = "1234567890abcdef";
 const heading = document.querySelector("h1");
 const start = document.querySelector("#start");
 const stop = document.querySelector("#stop");
@@ -35,11 +35,9 @@ stop.addEventListener("click", () => {
 // function to generate a random color
 function randomColor() {
   let color = "#";
-
   for (let i = 1; i <= 6; i++) {
-    color += colorHexCode[Math.floor(Math.random() * 16)];
+    color += colorHexCodeString[Math.floor(Math.random() * 16)];
   }
-
   return color;
 }
 
